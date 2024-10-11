@@ -9,8 +9,8 @@ configMapGenerator:
   - name: values
     files:
     - values.yaml
-  - name: values-staging
+  - name: values-${env}
     files:
-    - values-staging.yaml
+    - values-${env}.yaml
 generatorOptions:
   disableNameSuffixHash: true
