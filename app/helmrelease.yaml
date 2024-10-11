@@ -20,3 +20,5 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: values
+    - kind: ConfigMap
+      name: values-${env}
