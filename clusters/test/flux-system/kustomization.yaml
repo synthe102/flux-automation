@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-- ../../../apps/apps.yaml
 - cluster-vars.yaml
+- apps.yaml
