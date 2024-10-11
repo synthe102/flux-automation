@@ -1,0 +1,4 @@
+redis:
+  enabled: true
+  repository: public.ecr.aws/docker/library/redis
+  tag: 7.0.6
