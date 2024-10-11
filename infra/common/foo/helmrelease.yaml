@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: podinfo
+spec:
+  releaseName: podinfo
+  chart:
+    spec:
+      version: "6.7.1"
+      chart: podinfo
+      sourceRef:
+        kind: HelmRepository
+        name: podinfo
+  interval: 5m
+  dependsOn:
+    # Can't reconcile unless flux is up
+    - name: flux-system
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
+  valuesFrom:
+    - kind: ConfigMap
+      name: values
+    # Templated values per environment
+    - kind: ConfigMap
+      name: values
+      valuesKey: values-${env}.yaml
