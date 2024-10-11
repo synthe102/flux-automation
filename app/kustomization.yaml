@@ -9,3 +9,5 @@ configMapGenerator:
   - name: values
     files:
     - values.yaml
+generatorOptions:
+  disableNameSuffixHash: true
