@@ -22,3 +22,4 @@ spec:
       name: values
     - kind: ConfigMap
       name: values-${env}
+      valuesKey: values-${env}.yaml
