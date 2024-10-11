@@ -5,6 +5,7 @@ resources:
   - helmrelease.yaml
   - repo.yaml
   - namespace.yaml
+# Generates a configMap for the helmrelease based on actual usable value files
 configMapGenerator:
   - name: values
     files:

@@ -11,6 +11,7 @@ spec:
   path: ./clusters/test/apps/composition
   prune: true
   postBuild:
+    # Allows to template any nested kustomization
     substituteFrom:
       - kind: ConfigMap
         name: cluster-vars

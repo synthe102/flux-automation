@@ -12,6 +12,9 @@ spec:
         kind: HelmRepository
         name: podinfo
   interval: 5m
+  dependsOn:
+    # Can't reconcile unless flux is up
+    - name: flux-system
   install:
     remediation:
       retries: 3
@@ -20,6 +23,7 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: values
+    # Templated values per environment
     - kind: ConfigMap
       name: values
       valuesKey: values-${env}.yaml
